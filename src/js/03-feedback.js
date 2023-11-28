@@ -19,15 +19,24 @@ function onInput(evt) {
 
 function onReload() {
   const savedData = localStorage.getItem(STORAGE_KEY);
-  const parseData = JSON.parse(savedData);
+
   if (savedData) {
-    items.input.value = parseData.email;
-    items.textarea.value = parseData.message;
+    const parseData = JSON.parse(savedData);
+    items.input.value = parseData.email || '';
+    items.textarea.value = parseData.message || '';
   }
 }
+
 function onFormSubmit(evt) {
   evt.preventDefault();
-  console.log(dataForm);
-  evt.currentTarget.reset();
-  localStorage.removeItem(STORAGE_KEY);
+
+  if (dataForm.email && dataForm.message) {
+    console.log(dataForm);
+    evt.currentTarget.reset();
+    localStorage.removeItem(STORAGE_KEY);
+  } else {
+    console.error(
+      'Please fill in both email and message fields before submitting.'
+    );
+  }
 }
