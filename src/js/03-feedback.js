@@ -13,7 +13,7 @@ onReload();
 
 function onInput(evt) {
   const message = evt.target;
-  dataForm[message.name] = message.value;
+  dataForm[message.name] = message.value || '';
   localStorage.setItem(STORAGE_KEY, JSON.stringify(dataForm));
 }
 
