@@ -29,7 +29,6 @@ function onReload() {
 
 function onFormSubmit(evt) {
   evt.preventDefault();
-
   if (dataForm.email && dataForm.message) {
     console.log(dataForm);
     evt.currentTarget.reset();
