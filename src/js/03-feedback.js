@@ -18,12 +18,11 @@ function onInput(evt) {
 }
 
 function onReload() {
-  const savedData = localStorage.getItem(STORAGE_KEY);
+  const parseData = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
-  if (savedData) {
-    const parseData = JSON.parse(savedData);
-    items.input.value = parseData.email || '';
-    items.textarea.value = parseData.message || '';
+  if (parseData) {
+    items.input.value = parseData.email ?? '';
+    items.textarea.value = parseData.message ?? '';
   }
 }
 
