@@ -23,6 +23,8 @@ function onReload() {
   if (parseData) {
     items.input.value = parseData.email ?? '';
     items.textarea.value = parseData.message ?? '';
+     dataForm.email = items.input.value;
+     dataForm.message = items.textarea.value;
   }
 }
 
